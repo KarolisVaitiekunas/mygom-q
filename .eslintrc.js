@@ -18,6 +18,7 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.tsx'] }],
     '@typescript-eslint/no-unused-vars': 'error',
     '@typescript-eslint/no-explicit-any': 'error',
+    '@typescript-eslint/no-empty-interface': 'off',
     quotes: [2, 'single'],
   },
 };
