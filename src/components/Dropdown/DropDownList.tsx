@@ -62,7 +62,7 @@ const DropDownList: React.FC<IDropDownListProps> = ({ show, handleElements }) =>
   return (
     <Root show={show}>
       <DropdownInput placeholder='Search here...' value={search} onChange={(e) => handleFilter(e.target.value)} />
-      <List>
+      <List data-testid='dropdown-list'>
         {sections.map((section, index) => (
           <DropDownListItem key={index} handleElements={handleElements} section={section} />
         ))}

@@ -17,6 +17,13 @@ npm run check-lint ||
     false;
 )
 
+# Check tests
+npm run test  ||
+(
+    echo "Test(s) failed.";
+    false;
+)
+
 # Check tsconfig standards
 npm run check-types ||
 (

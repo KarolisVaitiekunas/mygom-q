@@ -33,9 +33,13 @@ interface IDropdownSelectionsProps {
 
 const DropdownSelections: React.FC<IDropdownSelectionsProps> = ({ selectedElements, show }) => {
   return (
-    <Root show={show}>
+    <Root show={show} data-testid='dropdown-selection'>
       {selectedElements.length > 0 ? (
-        selectedElements.map((element, index) => <SelectedElement key={index}>{element.name}</SelectedElement>)
+        selectedElements.map((element, index) => (
+          <SelectedElement key={index} data-testid='dropdown-selection-item'>
+            {element.name}
+          </SelectedElement>
+        ))
       ) : (
         <h5 style={{ margin: '0 auto 0 auto' }}>No elements selected</h5>
       )}

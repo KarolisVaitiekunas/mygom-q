@@ -20,7 +20,11 @@ interface IDropdownButtonProps {
   handleDropDownVisibility: () => void;
 }
 const DropdownButton: React.FC<IDropdownButtonProps> = ({ handleDropDownVisibility }) => {
-  return <Root onClick={handleDropDownVisibility}>DROPDOWN</Root>;
+  return (
+    <Root onClick={handleDropDownVisibility} data-testid='dropdown-button'>
+      DROPDOWN
+    </Root>
+  );
 };
 
 export default DropdownButton;

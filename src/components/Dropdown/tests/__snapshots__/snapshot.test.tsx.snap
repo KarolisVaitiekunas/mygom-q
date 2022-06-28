@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown  should render correctly 1`] = `
+<div>
+  <div
+    class="sc-papXJ TdNoI"
+  >
+    <button
+      class="sc-bczRLJ ciDhpJ"
+      data-testid="dropdown-button"
+    >
+      DROPDOWN
+    </button>
+    <div
+      class="sc-iBkjds jBGvYN"
+      data-testid="dropdown-selection"
+    >
+      <h5
+        style="margin: 0px auto 0px auto;"
+      >
+        No elements selected
+      </h5>
+    </div>
+    <div
+      class="sc-eCYdqJ lpuiWt"
+    >
+      <input
+        class="sc-jSMfEi ejJsbW"
+        placeholder="Search here..."
+        value=""
+      />
+      <ul
+        class="sc-gKXOVf dEecSf"
+        data-testid="dropdown-list"
+      >
+        <li
+          class="sc-gsnTZi lcRVku"
+        >
+          <p
+            class="sc-dkzDqf jGBHqn"
+          >
+            tactile
+          </p>
+          <p
+            class="sc-hKMtZM gERtIN"
+            data-testid="dropdown-list-item"
+          >
+            boba u4t
+          </p>
+          <p
+            class="sc-hKMtZM gERtIN"
+            data-testid="dropdown-list-item"
+          >
+            mx brown
+          </p>
+        </li>
+        <li
+          class="sc-gsnTZi lcRVku"
+        >
+          <p
+            class="sc-dkzDqf jGBHqn"
+          >
+            linear
+          </p>
+          <p
+            class="sc-hKMtZM gERtIN"
+            data-testid="dropdown-list-item"
+          >
+            holy panda
+          </p>
+          <p
+            class="sc-hKMtZM gERtIN"
+            data-testid="dropdown-list-item"
+          >
+            mx white
+          </p>
+        </li>
+        <li
+          class="sc-gsnTZi lcRVku"
+        >
+          <p
+            class="sc-dkzDqf jGBHqn"
+          >
+            clicky
+          </p>
+          <p
+            class="sc-hKMtZM gERtIN"
+            data-testid="dropdown-list-item"
+          >
+            box blues
+          </p>
+          <p
+            class="sc-hKMtZM gERtIN"
+            data-testid="dropdown-list-item"
+          >
+            box greens
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

@@ -33,7 +33,7 @@ const DropDownListItem: React.FC<IDropDownListItemProps> = ({ handleElements, se
       <SectionHeader>{section.section}</SectionHeader>
       {section.elements.map((element, index) => {
         return (
-          <SectionText key={index} onClick={() => handleElements(element)}>
+          <SectionText key={index} onClick={() => handleElements(element)} data-testid='dropdown-list-item'>
             {element.name}
           </SectionText>
         );
