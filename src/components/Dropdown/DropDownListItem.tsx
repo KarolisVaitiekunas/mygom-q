@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { DataType } from '../utils/data';
 import { SectionType } from './types';
 import styled from 'styled-components';
@@ -42,4 +42,4 @@ const DropDownListItem: React.FC<IDropDownListItemProps> = ({ handleElements, se
   );
 };
 
-export default DropDownListItem;
+export default memo(DropDownListItem);

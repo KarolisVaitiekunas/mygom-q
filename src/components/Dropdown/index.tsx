@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import DropdownButton from './DropdownButton';
 import DropDownList from './DropDownList';
@@ -21,13 +21,16 @@ export const Root = styled.div`
 const Dropdown: React.FC = () => {
   const [selectedElements, setSelectedElements] = useState<DataType[]>([]);
 
-  const handleElements = (element: DataType) => {
-    if (selectedElements.includes(element)) {
-      setSelectedElements((state) => state.filter((stateEl) => stateEl !== element));
-    } else {
-      setSelectedElements((state) => [...state, element]);
-    }
-  };
+  const handleElements = useCallback(
+    (element: DataType) => {
+      if (selectedElements.includes(element)) {
+        setSelectedElements((state) => state.filter((stateEl) => stateEl !== element));
+      } else {
+        setSelectedElements((state) => [...state, element]);
+      }
+    },
+    [selectedElements]
+  );
 
   const { show, DropDownListRef, handleDropDownVisibility } = UseListVisibility();
 
