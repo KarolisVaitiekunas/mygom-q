@@ -5,13 +5,16 @@ const UseFilterData = () => {
   const [search, setSearch] = useState('');
   const [list, setList] = useState(data);
 
-  const handleFilter = (searchInput: string) => {
-    setSearch(searchInput);
-    const cleanSearch = searchInput.trim().toLowerCase();
+  const handleFilter = () => {
+    const cleanSearch = search.trim().toLowerCase();
     setList(data.filter((element) => element.name.trim().toLocaleLowerCase().includes(cleanSearch)));
   };
 
-  return { search, handleFilter, list };
+  const handleInputSearch = (searchInput: string) => {
+    setSearch(searchInput);
+  };
+
+  return { search, handleInputSearch, handleFilter, list };
 };
 
 export default UseFilterData;

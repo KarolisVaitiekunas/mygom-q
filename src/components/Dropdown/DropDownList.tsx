@@ -32,7 +32,7 @@ interface IDropDownListProps {
 }
 const DropDownList: React.FC<IDropDownListProps> = ({ show, handleElements }) => {
   const [sections, setSections] = useState<SectionType>([]);
-  const { search, list, handleFilter } = UseFilterData();
+  const { search, list, handleInputSearch, handleFilter } = UseFilterData();
 
   useEffect(() => {
     // manage sections
@@ -61,7 +61,12 @@ const DropDownList: React.FC<IDropDownListProps> = ({ show, handleElements }) =>
 
   return (
     <Root show={show}>
-      <DropdownInput placeholder='Search here...' value={search} onChange={(e) => handleFilter(e.target.value)} />
+      <DropdownInput
+        placeholder='Search here...'
+        value={search}
+        onSelect={handleFilter}
+        onChange={(e) => handleInputSearch(e.target.value)}
+      />
       <List data-testid='dropdown-list'>
         {sections.map((section, index) => (
           <DropDownListItem key={index} handleElements={handleElements} section={section} />
