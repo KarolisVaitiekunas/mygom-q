@@ -1,8 +1,30 @@
 import React, { useEffect, useState } from 'react';
-import { DataType } from '../utils/data';
-import UseFilterData from '../utils/hooks/UseFilterData';
+import styled from 'styled-components';
+import themeGet from '@styled-system/theme-get';
 import DropDownListItem from './DropDownListItem';
-import { SectionType } from './types';
+import UseFilterData from '../utils/hooks/UseFilterData';
+import { DataType } from '../utils/data';
+import { ActiveType, SectionType } from './types';
+
+export const Root = styled.div<ActiveType>`
+  transition: opacity 0.3s;
+  opacity: ${({ show }: { show: boolean }) => (show ? 1 : 0)};
+`;
+
+export const DropdownInput = styled.input`
+  margin-top: 10px;
+  border: none;
+  border-bottom: 2px solid ${themeGet('colors.primary')};
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const List = styled.ul`
+  max-height: 200px;
+  overflow: auto;
+`;
 
 interface IDropDownListProps {
   show: boolean;
@@ -37,17 +59,15 @@ const DropDownList: React.FC<IDropDownListProps> = ({ show, handleElements }) =>
     setSections(newSections);
   }, [list]);
 
-  return show ? (
-    <div>
-      <input value={search} onChange={(e) => handleFilter(e.target.value)} />
-      <ul>
-        {sections.map((section, index) => {
-          return <DropDownListItem key={index} handleElements={handleElements} section={section} />;
-        })}
-      </ul>
-    </div>
-  ) : (
-    <></>
+  return (
+    <Root show={show}>
+      <DropdownInput placeholder='Search here...' value={search} onChange={(e) => handleFilter(e.target.value)} />
+      <List>
+        {sections.map((section, index) => (
+          <DropDownListItem key={index} handleElements={handleElements} section={section} />
+        ))}
+      </List>
+    </Root>
   );
 };
 

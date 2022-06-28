@@ -1,16 +1,18 @@
-import themeGet from '@styled-system/theme-get';
 import React from 'react';
 import styled from 'styled-components';
+import themeGet from '@styled-system/theme-get';
 
 export const Root = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80px;
-  width: 50%;
+  height: 50px;
+  width: 100%;
   border: none;
   border-radius: 3px;
   background-color: ${themeGet('colors.primary')};
+  color: #fff;
+  font-weight: bold;
   cursor: pointer;
 `;
 

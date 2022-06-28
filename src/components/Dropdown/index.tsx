@@ -1,12 +1,26 @@
 import { useState } from 'react';
-import { DataType } from '../utils/data';
-import UseListVisibility from '../utils/hooks/UseListVisibility';
+import styled from 'styled-components';
 import DropdownButton from './DropdownButton';
 import DropDownList from './DropDownList';
 import DropdownSelections from './DropdownSelections';
+import UseListVisibility from '../utils/hooks/UseListVisibility';
+import { DataType } from '../utils/data';
+
+export const Root = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+  position: relative;
+  width: 300px;
+  max-width: 300px;
+`;
 
 const Dropdown: React.FC = () => {
   const [selectedElements, setSelectedElements] = useState<DataType[]>([]);
+
   const handleElements = (element: DataType) => {
     if (selectedElements.includes(element)) {
       setSelectedElements((state) => state.filter((stateEl) => stateEl !== element));
@@ -18,20 +32,11 @@ const Dropdown: React.FC = () => {
   const { show, DropDownListRef, handleDropDownVisibility } = UseListVisibility();
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        border: '1px solid red',
-        marginTop: '5px',
-      }}
-      ref={DropDownListRef}
-    >
+    <Root ref={DropDownListRef}>
       <DropdownButton handleDropDownVisibility={handleDropDownVisibility} />
-      <DropdownSelections selectedElements={selectedElements} />
+      <DropdownSelections show={show} selectedElements={selectedElements} />
       <DropDownList show={show} handleElements={handleElements} />
-    </div>
+    </Root>
   );
 };
 

@@ -1,24 +1,18 @@
 const colors = {
   primary: '#0095ff',
-  secondary: '#fff',
+  secondary: '#D3D3D3',
   background: '#323437',
 };
 
-const fontSizes = [12, 14, 16, 20, 24, 32];
-
-const fonts = {
-  size: {
-    extraSmall: fontSizes[0],
-    small: fontSizes[1],
-    medium: fontSizes[2],
-    large: fontSizes[3],
-    extraLarge: fontSizes[4],
-    huge: fontSizes[5],
-  },
-};
+const fontSizes: Record<string, number> = {};
+fontSizes.extraSmall = 12;
+fontSizes.small = 14;
+fontSizes.medium = 16;
+fontSizes.large = 20;
+fontSizes.extraLarge = 24;
+fontSizes.huge = 32;
 
 export const theme = {
   colors: colors,
   fontSizes: fontSizes,
-  fonts: fonts,
 };

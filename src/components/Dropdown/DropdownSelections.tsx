@@ -1,22 +1,45 @@
 import React from 'react';
+import styled from 'styled-components';
+import themeGet from '@styled-system/theme-get';
+import { DataType } from '../utils/data';
+import { ActiveType } from './types';
+
+export const Root = styled.div<ActiveType>`
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 300px;
+  overflow-x: auto;
+  transition: opacity 0.3s;
+  opacity: ${({ show }: { show: boolean }) => (show ? 1 : 0)};
+`;
+
+export const SelectedElement = styled.p`
+  white-space: nowrap;
+  margin: 2px;
+  padding: 2px;
+  background-color: ${themeGet('colors.primary')};
+  color: #fff;
+  font-size: ${themeGet('fontSizes.extraSmall')}px;
+  font-weight: bold;
+  border-radius: 2px;
+`;
 
 interface IDropdownSelectionsProps {
-  selectedElements:
-    | {
-        name: string;
-        type: string;
-      }[];
+  selectedElements: Array<DataType>;
+  show: boolean;
 }
 
-const DropdownSelections: React.FC<IDropdownSelectionsProps> = ({ selectedElements }) => {
+const DropdownSelections: React.FC<IDropdownSelectionsProps> = ({ selectedElements, show }) => {
   return (
-    <div>
+    <Root show={show}>
       {selectedElements.length > 0 ? (
-        selectedElements.map((element, index) => <h5 key={index}>{element.name}</h5>)
+        selectedElements.map((element, index) => <SelectedElement key={index}>{element.name}</SelectedElement>)
       ) : (
-        <h5>No elements selected</h5>
+        <h5 style={{ margin: '0 auto 0 auto' }}>No elements selected</h5>
       )}
-    </div>
+    </Root>
   );
 };
 
