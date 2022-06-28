@@ -23,11 +23,11 @@ const SectionText = styled.p`
   }
 `;
 
-interface IDropDownListItemProps {
+type DropDownListItemPropsType = {
   handleElements: (element: DataType) => void;
   section: SectionType[0];
-}
-const DropDownListItem: React.FC<IDropDownListItemProps> = ({ handleElements, section }) => {
+};
+const DropDownListItem: React.FC<DropDownListItemPropsType> = ({ handleElements, section }) => {
   return (
     <Section>
       <SectionHeader>{section.section}</SectionHeader>

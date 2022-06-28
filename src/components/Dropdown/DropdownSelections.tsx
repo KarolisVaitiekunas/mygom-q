@@ -26,12 +26,12 @@ export const SelectedElement = styled.p`
   border-radius: 2px;
 `;
 
-interface IDropdownSelectionsProps {
+type DropdownSelectionsPropsType = {
   selectedElements: Array<DataType>;
   show: boolean;
-}
+};
 
-const DropdownSelections: React.FC<IDropdownSelectionsProps> = ({ selectedElements, show }) => {
+const DropdownSelections: React.FC<DropdownSelectionsPropsType> = ({ selectedElements, show }) => {
   return (
     <Root show={show} data-testid='dropdown-selection'>
       {selectedElements.length > 0 ? (

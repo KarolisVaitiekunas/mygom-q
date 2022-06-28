@@ -16,10 +16,10 @@ export const Root = styled.button`
   cursor: pointer;
 `;
 
-interface IDropdownButtonProps {
+type DropdownButtonPropsType = {
   handleDropDownVisibility: () => void;
-}
-const DropdownButton: React.FC<IDropdownButtonProps> = ({ handleDropDownVisibility }) => {
+};
+const DropdownButton: React.FC<DropdownButtonPropsType> = ({ handleDropDownVisibility }) => {
   return (
     <Root onClick={handleDropDownVisibility} data-testid='dropdown-button'>
       DROPDOWN

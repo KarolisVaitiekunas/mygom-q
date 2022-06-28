@@ -8,7 +8,7 @@ import { ActiveType, SectionType } from './types';
 
 export const Root = styled.div<ActiveType>`
   transition: opacity 0.3s;
-  opacity: ${({ show }: { show: boolean }) => (show ? 1 : 0)};
+  opacity: ${({ show }: ActiveType) => (show ? 1 : 0)};
 `;
 
 export const DropdownInput = styled.input`
@@ -26,11 +26,11 @@ export const List = styled.ul`
   overflow: auto;
 `;
 
-interface IDropDownListProps {
+type DropDownListPropsType = {
   show: boolean;
   handleElements: (element: DataType) => void;
-}
-const DropDownList: React.FC<IDropDownListProps> = ({ show, handleElements }) => {
+};
+const DropDownList: React.FC<DropDownListPropsType> = ({ show, handleElements }) => {
   const [sections, setSections] = useState<SectionType>([]);
   const { search, list, handleInputSearch, handleFilter } = UseFilterData();
 
